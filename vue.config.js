@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/name-of-your-project/'
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/interview-calculator/'
+        : '/'
 }
