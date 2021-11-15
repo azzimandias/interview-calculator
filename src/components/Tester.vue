@@ -30,7 +30,6 @@ export default {
     display: inline-block;
     font-size: 20px;
     padding: 15px;
-    background-color: white;
     border: darkseagreen solid 2px;
     font-weight: bold;
     color: darkseagreen;
