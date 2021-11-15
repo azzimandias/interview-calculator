@@ -1,0 +1,62 @@
+@media (prefers-color-scheme: dark) {
+    * {
+        background-color: black;
+    }
+
+    #app {
+        color: aliceblue;
+    }
+
+    .white-block {
+        background-color: black;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .question__body {
+        background-color: #2c3e50;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .answers__body {
+        background-color: darkolivegreen;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .answer {
+        text-shadow: 0 0 0 #000, 0 0 0 #000;
+    }
+
+    .answer:hover {
+        text-shadow: 0 0 1px #fff, 0 0 0 #fff;
+    }
+
+    .help {
+        background-color: darkolivegreen;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .chosen {
+        text-shadow: 0 0 1px #fff, 0 0 0 #fff;
+    }
+
+    .to-input {
+        color: aliceblue;
+        border-bottom: 1px solid aliceblue;
+    }
+
+    .to-input:disabled {
+        color: aliceblue;
+        text-shadow: 0 0 1px #fff, 0 0 1px #fff;
+    }
+
+    .maybe {
+        background-color: black;
+        border: darkolivegreen solid 2px;
+        color: darkolivegreen;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .maybe:active {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
