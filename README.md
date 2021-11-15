@@ -1,5 +1,9 @@
 # interview-calculator
 
+Interview calculator web application. Implemented using the Vue framework.<br/>
+Test the functionality [here](https://azzimandias.github.io/interview-calculator/).
+
+---
 ## Project setup
 ```
 npm install
