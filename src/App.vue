@@ -343,6 +343,10 @@ export default {
       width: 600px;
     }
 
+    .question__body {
+      border-radius: 30px;
+    }
+
     .question__title {
       font-size: 15px;
       margin: 10px 15px;
