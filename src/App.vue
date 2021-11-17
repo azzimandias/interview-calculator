@@ -120,7 +120,11 @@ export default {
       let element = '';
       for (let i = 0; i < this.arrayId.length; i++) {
         element = document.getElementById(this.arrayId[i]);
-        element.className = "answer"
+        element.className = "answer1";
+        setTimeout(() => {
+          element = document.getElementById(this.arrayId[i]);
+          element.className = "answer"
+        }, 500);
       }
       (document.getElementById("help-1")).style.opacity = "1";
       (document.getElementById("help-1")).style.display = "inherit"
@@ -279,6 +283,14 @@ export default {
     font-size: 20px;
     text-shadow: 0 0 0 #333, 0 0 0 #333;
     transition: font-size 0.5s, opacity 0s, margin 0.5s;
+  }
+
+  .answer1 {
+    margin: 15px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    text-shadow: 0 0 0 #333, 0 0 0 #333;
+    transition: font-size 0.5s, opacity 1.5s, margin 0.5s;
   }
 
   .answer:hover {
