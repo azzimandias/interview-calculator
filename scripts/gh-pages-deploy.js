@@ -11,7 +11,9 @@ const fs = require("fs");
         await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
         console.log("Pushing to gh-pages...");
         await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"]);
-        await execa("rm", ["-r", folderName]);
+        await fs.rm(folderName, {recursive: true}, (err) => {
+            if(err) throw err;
+        });
         await execa("git", ["checkout", "-f", "main"]);
         await execa("git", ["branch", "-D", "gh-pages"]);
         console.log("Successfully deployed");
