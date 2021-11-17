@@ -124,7 +124,7 @@ export default {
         setTimeout(() => {
           element = document.getElementById(this.arrayId[i]);
           element.className = "answer"
-        }, 500);
+        }, 200);
       }
       (document.getElementById("help-1")).style.opacity = "1";
       (document.getElementById("help-1")).style.display = "inherit"
@@ -278,6 +278,7 @@ export default {
   }
 
   .answer {
+    opacity: 1;
     margin: 15px 30px;
     cursor: pointer;
     font-size: 20px;
@@ -286,11 +287,12 @@ export default {
   }
 
   .answer1 {
+    opacity: 0;
     margin: 15px 30px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 12px;
     text-shadow: 0 0 0 #333, 0 0 0 #333;
-    transition: font-size 0.5s, opacity 1.5s, margin 0.5s;
+    transition: font-size 0.3s, margin 0.3s;
   }
 
   .answer:hover {
