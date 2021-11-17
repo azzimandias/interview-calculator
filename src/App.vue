@@ -160,6 +160,15 @@ export default {
 <style>
   * {
     -webkit-tap-highlight-color: transparent;
+    background-color: white;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    background-color: inherit;
+  }
+
+  div {
+    background-color: inherit;
   }
 
   body {
