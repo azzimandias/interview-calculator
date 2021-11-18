@@ -6,8 +6,7 @@
       calculator
     </h1>
     <div class="chat" id="chat">
-      <div class="chat__segment"
-           id="firstQuestion">
+      <div class="chat__segment" id="firstQuestion">
         <div class="question">
           <div class="question__body">
             <h2 class="question__title">
@@ -17,16 +16,13 @@
         </div>
         <div class="answers">
           <div class="answers__body">
-            <div class="answer"
-                 id="answer-1"
+            <div class="answer" id="answer-1"
                  @click.once="chosenWebDesigner($event)">
               Веб-дизайнер</div>
-            <div class="answer"
-                 id="answer-2"
+            <div class="answer" id="answer-2"
                  @click.once="chosenJuniorFrontend($event)">
               Джуниор фронтенд разработчик</div>
-            <div class="answer"
-                 id="answer-3"
+            <div class="answer" id="answer-3"
                  @click="chosenTester($event)">
               Тестеровщик</div>
           </div>
@@ -49,9 +45,9 @@
 </template>
 
 <script>
-import WebDesigner from "@/components/WebDesigner";
-import JuniorFrontend from "@/components/JuniorFrontend";
-import Tester from "@/components/Tester";
+import WebDesigner from "./components/WebDesigner";
+import JuniorFrontend from "./components/JuniorFrontend";
+import Tester from "./components/Tester";
 
 export default {
   name: 'App',
@@ -218,7 +214,7 @@ export default {
     width: 1000px;
     min-height: calc(100vh - 120px);
     margin: 0 auto;
-    padding: 60px 10px 0 10px;
+    padding: 60px 10px;
   }
 
   .chat__segment {
@@ -409,6 +405,7 @@ export default {
 
     .chat {
       margin: 100px 10px 0 10px;
+      padding: 60px 10px 20px 10px;
     }
 
     .question {

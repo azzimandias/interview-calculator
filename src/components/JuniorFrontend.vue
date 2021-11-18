@@ -139,7 +139,7 @@
         </div>
       </div>
     </div>
-    <div class="result">
+    <div class="result" v-if="isFirstResult || isSecondResult || isThirdResult">
       <div class="result__body" id="results">
         <h2 class="result__title" id="result-1" v-if="isFirstResult">
           К сожалению, нам с тобой не по пути</h2>
@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import Percent from "@/components/Percent";
+import Percent from "./Percent";
 export default {
   name: "JuniorFrontend",
   components: {
@@ -316,7 +316,7 @@ export default {
   }
 
   .result__body {
-    margin-bottom: 60px;
+    //margin-bottom: 60px;
   }
 
   .result__title {
@@ -338,6 +338,10 @@ export default {
     .to-input {
       font-size: 12px;
       margin: 5px 15px;
+    }
+
+    .big-margin {
+      margin-bottom: 90px;
     }
 
     .another-position {
