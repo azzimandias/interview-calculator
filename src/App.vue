@@ -218,7 +218,7 @@ export default {
     width: 1000px;
     min-height: calc(100vh - 120px);
     margin: 0 auto;
-    padding: 60px 10px;
+    padding: 60px 10px 0 10px;
   }
 
   .chat__segment {
