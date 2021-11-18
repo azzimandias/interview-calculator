@@ -216,7 +216,7 @@ export default {
 
   .chat {
     width: 1000px;
-    height: calc(100vh - 120px);
+    min-height: calc(100vh - 120px);
     margin: 0 auto;
     padding: 60px 10px;
   }
