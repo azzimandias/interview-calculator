@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="result" v-show="this.question === this.webQuestions.length">
       <div class="result__body" id="results">
         <h2 class="result__title" id="result-1">{{ result }}</h2>
@@ -89,7 +88,6 @@ export default {
     }
   },
   watch: {
-
   },
   mounted() {
     if (this.isBeginWebDesigner) {
