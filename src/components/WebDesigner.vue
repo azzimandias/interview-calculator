@@ -1,8 +1,8 @@
 <template>
   <div class="web-designer"
-       v-if="isBeginWebDesigner">
+       v-if="this.isBeginWebDesigner">
     <Percent :newScore="this.score"/>
-    <div class="chat__segment" v-for="(segment, index) in array[0]" :key="index">
+    <div class="chat__segment" v-for="(segment, index) in this.array[0]" :key="index">
       <div class="question">
         <div class="question__body">
           <h3 class="question__title">{{ segment[0].title }}</h3>
@@ -33,7 +33,6 @@ export default {
   components: {
     Percent
   },
-  props: ["isBeginWebDesigner"],
   data() {
     return {
       arrayId: [],
@@ -41,6 +40,7 @@ export default {
     }
   },
   computed: mapGetters([
+    'isBeginWebDesigner',
     'webQuestions',
     'webAnswers',
     'question',

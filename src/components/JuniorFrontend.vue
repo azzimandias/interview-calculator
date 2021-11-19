@@ -1,8 +1,8 @@
 <template>
   <div class="junior-frontend"
-       v-if="isBeginJuniorFrontend">
+       v-if="this.isBeginJuniorFrontend">
     <Percent :newScore="this.score"/>
-    <div class="chat__segment" v-for="(segment, index) in array[0]" :key="index">
+    <div class="chat__segment" v-for="(segment, index) in this.array[0]" :key="index">
       <div class="question">
         <div class="question__body">
           <h3 class="question__title">{{ segment[0].title }}</h3>
@@ -17,9 +17,9 @@
       </div>
     </div>
     <div class="chat__segment"
-         v-for="(segment, index) in array[1]"
+         v-for="(segment, index) in this.array[1]"
          :key="index"
-         v-if="question >= interrupt">
+         v-if="(this.question >= this.interrupt)">
       <div class="question">
         <div class="question__body">
           <h3 class="question__title">{{ segment[0].title }}</h3>
@@ -41,10 +41,8 @@
         </div>
       </div>
     </div>
-    <div class="chat__segment"
-         v-for="(segment, index) in array[2]"
-         :key="index"
-         v-if="question > interrupt">
+    <div class="chat__segment" v-for="(segment, index) in this.array[2]" :key="index"
+         v-if="(this.question > this.interrupt)">
       <div class="question">
         <div class="question__body">
           <h3 class="question__title">{{ segment[0].title }}</h3>
@@ -74,7 +72,6 @@ export default {
   components: {
     Percent
   },
-  props: ["isBeginJuniorFrontend"],
   data() {
     return {
       arrayId: [],
@@ -86,6 +83,7 @@ export default {
     }
   },
   computed: mapGetters([
+      'isBeginJuniorFrontend',
       'i',
       'interrupt',
       'juniorQuestions',

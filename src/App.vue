@@ -6,8 +6,7 @@
       calculator
     </h1>
     <div class="chat" id="chat">
-      <div class="chat__segment"
-           id="firstQuestion">
+      <div class="chat__segment" id="firstQuestion">
         <div class="question">
           <div class="question__body">
             <h2 class="question__title">
@@ -18,31 +17,19 @@
         <div class="answers">
           <div class="answers__body">
             <div class="answer"
-                 id="answer-1"
-                 @click.once="chosenWebDesigner($event)">
-              Веб-дизайнер</div>
-            <div class="answer"
-                 id="answer-2"
-                 @click.once="chosenJuniorFrontend($event)">
-              Джуниор фронтенд разработчик</div>
-            <div class="answer"
-                 id="answer-3"
-                 @click="chosenTester($event)">
-              Тестеровщик</div>
+                 v-for="(branch,index) in this.branches" :key="index"
+                 @click="choseBranch(branch.short, branch.id)">{{ branch.title }}</div>
           </div>
           <div class="help" id="help-1">
             Выберите один из вариантов ответа
           </div>
         </div>
       </div>
-      <WebDesigner :isBeginWebDesigner="isBeginWebDesigner"
-                   :key="webKeyRerender"
+      <WebDesigner :key="webKeyRerender"
                    @scrollToEnd="scrollToEnd()"/>
-      <JuniorFrontend :isBeginJuniorFrontend="isBeginJuniorFrontend"
-                      :key="juniorKeyRerender"
+      <JuniorFrontend :key="juniorKeyRerender"
                       @scrollToEnd="scrollToEnd()"/>
-      <Tester :isBeginTester="isBeginTester"
-              :key="testerKeyRerender"
+      <Tester :key="testerKeyRerender"
               @unHide="unHideFirstQuestion()"/>
     </div>
   </div>
@@ -52,7 +39,7 @@
 import WebDesigner from "@/components/WebDesigner";
 import JuniorFrontend from "@/components/JuniorFrontend";
 import Tester from "@/components/Tester";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name: 'App',
   components: {
@@ -62,10 +49,6 @@ export default {
   },
   data() {
     return {
-      isBeginWebDesigner: false,
-      isBeginJuniorFrontend: false,
-      isBeginTester: false,
-      arrayId: [],
       flag: false,
       scrollH: document.documentElement.scrollHeight,
       scrollT: 0,
@@ -74,43 +57,31 @@ export default {
       testerKeyRerender: 2,
     }
   },
+  computed: mapGetters(['branches']),
   methods: {
     ...mapMutations(['whatsChosen', 'clearAllSegments']),
-    chosenWebDesigner(event) {
-      this.whatsChosen('web');
-      this.isBeginWebDesigner = !this.isBeginWebDesigner;
-      this.forceRerender(event);
-    },
-    chosenJuniorFrontend(event) {
-      this.whatsChosen('jun');
-      this.isBeginJuniorFrontend = !this.isBeginJuniorFrontend;
-      this.forceRerender(event);
-    },
-    chosenTester(event) {
+    choseBranch(short, id) {
       if (!this.flag) {
-        this.isBeginTester = !this.isBeginTester;
         this.flag = !this.flag;
-        this.forceRerender(event);
+        this.whatsChosen(short);
+        this.hideFirstQuestion(id);
+        this.clearAllSegments();
+        this.forceRerender();
       }
     },
-    forceRerender(event) {
-      this.hideFirstQuestion(event);
-      this.clearAllSegments();
+    forceRerender() {
       this.webKeyRerender++;
       this.juniorKeyRerender++;
       this.testerKeyRerender++;
     },
-    hideFirstQuestion(event) {
-      let element = '';
-      for (let i = 0; i < this.arrayId.length; i++) {
-        element = document.getElementById(this.arrayId[i]);
-        if (this.arrayId[i] !== event.target.id) {
-          if (element !== null) {
-            element.className += " hidden";
-          }
+    hideFirstQuestion(id) {
+      let element = document.getElementsByClassName('answer');
+      for (let i = 0; i < this.branches.length; i++) {
+        if (i !== id) {
+          element[i].className += " hidden";
         }
         else {
-          element.className += " chosen";
+          element[i].className += " chosen";
         }
       }
       (document.getElementById("help-1")).style.opacity = "0";
@@ -120,11 +91,10 @@ export default {
     },
     unHideFirstQuestion() {
       this.flag = !this.flag;
-      this.isBeginTester = !this.isBeginTester;
-      let element = '';
-      for (let i = 0; i < this.arrayId.length; i++) {
-        element = document.getElementById(this.arrayId[i]);
-        element.className = "answer"
+      this.whatsChosen('tes');
+      let element = document.getElementsByClassName('answer');
+      for (let i = 0; i < this.branches.length; i++) {
+        element[i].className = "answer"
       }
       (document.getElementById("help-1")).style.opacity = "1";
       (document.getElementById("help-1")).style.display = "inherit"
@@ -154,9 +124,6 @@ export default {
     }
   },
   mounted() {
-    for (let i = 1; i <= 3; i++) {
-      this.arrayId.push(`answer-${i}`);
-    }
   }
 }
 </script>
