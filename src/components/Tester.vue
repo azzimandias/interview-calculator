@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isBeginTester">
+  <div v-if="this.isBeginTester">
     <div class="question tester-anim">
       <div class="question__body">
         <h2 class="question__title">
@@ -13,15 +13,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Tester",
-  props: ["isBeginTester"],
   methods: {
     goBack() {
       (document.getElementsByClassName("tester-anim"))[0].style.opacity = "0";
       setTimeout(() => this.$emit('unHide'), 300);
     }
-  }
+  },
+  computed: mapGetters(['isBeginTester'])
 }
 </script>
 
