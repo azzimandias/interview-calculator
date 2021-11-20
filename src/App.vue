@@ -444,7 +444,6 @@ export default {
     text-align: center;
     animation: move 1s ease-out;
     flex: 0 0 auto;
-    border: white solid 1px;
   }
 
   .result__body {
