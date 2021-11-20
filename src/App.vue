@@ -131,13 +131,17 @@ export default {
     scrollToEnd() {
       let elem = document.getElementById('result');
       let coordinationY = elem.getBoundingClientRect().bottom;
+      let oldScrollTop = 0;
       setTimeout(() => {
         let scroller = setInterval(() => {
           let scrollBy = coordinationY / 500;
           if(scrollBy > window.pageYOffset - coordinationY &&
-            document.documentElement.clientHeight + window.pageYOffset < document.body.offsetHeight) {
+            document.documentElement.clientHeight + window.pageYOffset < document.body.offsetHeight &&
+            document.documentElement.scrollTop >= oldScrollTop) {
+            oldScrollTop = document.documentElement.scrollTop;
             window.scrollBy(0, scrollBy);
-          } else {
+          }
+          else {
             clearInterval(scroller);
           }
         }, 10);
