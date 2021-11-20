@@ -16,11 +16,6 @@
         </div>
       </div>
     </div>
-    <div class="result" v-show="this.question === this.webQuestions.length">
-      <div class="result__body" id="results">
-        <h2 class="result__title" id="result-1">{{ result }}</h2>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -47,8 +42,7 @@ export default {
     'array',
     'thisAnswers',
     'thisAnswersId',
-    'score',
-    'result'
+    'score'
   ]),
   methods: {
     ...mapMutations([
@@ -69,7 +63,7 @@ export default {
         this.mulScore(newScore);
       }
       this.nullOrHundred();
-      this.$emit('scrollToEnd');
+      setTimeout(() => this.$emit('scrollToEnd'), 1);
     },
     hideAnswers(chosenId) {
       let element = document.getElementsByClassName('answer');
@@ -99,25 +93,5 @@ export default {
 </script>
 
 <style scoped>
-  .result {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    animation: move 1s ease-out;
-  }
 
-  .result__body {
-    //margin-bottom: 60px;
-  }
-
-  .result__title {
-    font-size: 30px;
-  }
-
-  @media screen and (max-width: 580px) {
-    .result__title {
-      font-size: 20px;
-    }
-  }
 </style>
-

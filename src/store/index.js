@@ -34,6 +34,7 @@ export default new Vuex.Store({
         'Проверь почту, там уже лежит оффер',
     ],
     i: 0,
+    currentBranchLength: -1,
     whichBranch: '',
     array: [[]],
     interrupt: -1,
@@ -56,6 +57,9 @@ export default new Vuex.Store({
     },
     i(state) {
       return state.i;
+    },
+    currentBranchLength(state) {
+      return state.currentBranchLength;
     },
     interrupt(state) {
       return state.interrupt;
@@ -104,9 +108,11 @@ export default new Vuex.Store({
       switch (name) {
         case 'web':
           state.branches[0].chosen = !state.branches[0].chosen;
+          state.currentBranchLength = state.web.questions.length;
           break;
         case 'jun':
           state.branches[1].chosen = !state.branches[1].chosen;
+          state.currentBranchLength = state.jun.questions.length;
           break;
         case 'tes':
           state.branches[2].chosen = !state.branches[2].chosen;

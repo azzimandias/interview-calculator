@@ -32,6 +32,11 @@
       <Tester :key="testerKeyRerender"
               @unHide="unHideFirstQuestion()"/>
     </div>
+    <div class="result" id="result">
+      <div class="result__body" id="results" v-if="this.question === this.currentBranchLength">
+        <h2 class="result__title" id="result-1">{{ result }}</h2>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,13 +58,23 @@ export default {
       flag: false,
       scrollH: document.documentElement.scrollHeight,
       scrollT: 0,
+      hidden1: {},
+      hidden2: {},
+      chosen: {},
       webKeyRerender: 0,
       juniorKeyRerender: 1,
       testerKeyRerender: 2,
     }
   },
 
-  computed: mapGetters(['branches']),
+  computed: mapGetters([
+      'branches',
+      'currentBranchLength',
+      'juniorQuestions',
+      'juniorAnswers',
+      'question',
+      'result'
+  ]),
   methods: {
     ...mapMutations(['whatsChosen', 'clearAllSegments']),
     choseBranch(short, id) {
@@ -86,6 +101,9 @@ export default {
           element[i].className += " chosen";
         }
       }
+      this.hidden1 = document.getElementsByClassName('hidden')[0];
+      this.hidden2 = document.getElementsByClassName('hidden')[1];
+      this.chosen = document.getElementsByClassName('chosen')[0];
       (document.getElementById("help-1")).style.opacity = "0";
       setTimeout(() => {
         (document.getElementById("help-1")).style.display = "none"
@@ -94,35 +112,36 @@ export default {
     unHideFirstQuestion() {
       this.flag = !this.flag;
       this.whatsChosen('tes');
-      let element = document.getElementsByClassName('answer');
-      for (let i = 0; i < this.branches.length; i++) {
-        element[i].className = "answer"
-      }
+      this.getBackClasses();
       (document.getElementById("help-1")).style.opacity = "1";
-      (document.getElementById("help-1")).style.display = "inherit"
+      (document.getElementById("help-1")).style.display = "inherit";
       this.webKeyRerender++;
       this.juniorKeyRerender++;
       this.testerKeyRerender++;
     },
-    scrollToEnd() {
+    getBackClasses() {
+      this.hidden1.className = "answer1";
+      this.hidden2.className = "answer1";
       setTimeout(() => {
-        let x = (document.documentElement.scrollHeight - this.scrollH) + 60;
-        let y = this.scrollT - document.documentElement.scrollTop;
-        this.scrollH = document.documentElement.scrollHeight;
-        let i = 0;
-        if (y > 0)
-          x = x + y;
-        if (x > 0) {
-          let interval = setInterval(() => {
-            if (i === x) {
-              clearInterval(interval);
-              this.scrollT = document.documentElement.scrollTop;
-            }
-            document.documentElement.scrollTop++;
-            i++;
-          }, 1);
-        }
-      }, 1);
+        this.hidden1.className = "answer";
+        this.hidden2.className = "answer";
+      }, 500)
+      this.chosen.className = "answer";
+    },
+    scrollToEnd() {
+      let elem = document.getElementById('result');
+      let coordinationY = elem.getBoundingClientRect().bottom;
+      setTimeout(() => {
+        let scroller = setInterval(() => {
+          let scrollBy = coordinationY / 500;
+          if(scrollBy > window.pageYOffset - coordinationY &&
+            document.documentElement.clientHeight + window.pageYOffset < document.body.offsetHeight) {
+            window.scrollBy(0, scrollBy);
+          } else {
+            clearInterval(scroller);
+          }
+        }, 10);
+      }, 10);
     }
   },
   mounted() {
@@ -134,6 +153,7 @@ export default {
   * {
     -webkit-tap-highlight-color: transparent;
     background-color: white;
+    box-sizing: border-box;
   }
 
   h1,h2,h3,h4,h5,h6 {
@@ -160,6 +180,9 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   .white-block {
@@ -185,9 +208,9 @@ export default {
 
   .chat {
     width: 1000px;
-    min-height: calc(100vh - 120px);
     margin: 0 auto;
     padding: 60px 10px;
+    flex: 1 0 auto;
   }
 
   .chat__segment {
@@ -227,6 +250,7 @@ export default {
   }
 
   .question__title {
+    text-align: justify;
     margin: 15px 15px;
     font-size: 20px;
   }
@@ -256,12 +280,12 @@ export default {
   }
 
   .answer1 {
-    opacity: 0;
+    opacity: 1;
     margin: 15px 30px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 20px;
     text-shadow: 0 0 0 #333, 0 0 0 #333;
-    transition: font-size 0.3s, margin 0.3s;
+    transition: font-size 0.5s, opacity 1s, margin 0.5s;
   }
 
   .answer:hover {
@@ -329,7 +353,7 @@ export default {
       border-radius: 30px;
     }
 
-    .answer {
+    .answer, .answer1 {
       font-size: 15px;
       margin: 10px 25px;
     }
@@ -395,7 +419,7 @@ export default {
       left: calc(50% - 150px);
     }
 
-    .answers {
+    .answers, .answer1 {
       max-width: 80%;
     }
 
@@ -411,6 +435,29 @@ export default {
 
     .chosen {
       margin: 5px 15px;
+    }
+  }
+
+  .result {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    animation: move 1s ease-out;
+    flex: 0 0 auto;
+    border: white solid 1px;
+  }
+
+  .result__body {
+  //margin-bottom: 60px;
+  }
+
+  .result__title {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 580px) {
+    .result__title {
+      font-size: 20px;
     }
   }
 </style>

@@ -16,8 +16,7 @@
       </div>
       <div class="help another-position" id="help-2">
         Введите число от 0 до 10,<br/>
-        где 0 — это совершенно не люблю,<br/>
-        а 10 — обожаю
+        где 0 — это совершенно не люблю, а 10 — обожаю
       </div>
     </div>
   </div>
@@ -116,7 +115,7 @@ export default {
 .another-position {
   top: 100%;
   left: -240%;
-  max-width: 270px;
+  max-width: 400px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -137,7 +136,7 @@ export default {
   }
 
   .another-position {
-    left: -200%;
+    left: -300%;
   }
 }
 </style>
