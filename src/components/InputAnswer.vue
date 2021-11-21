@@ -88,55 +88,5 @@ export default {
 </script>
 
 <style scoped>
-  .to-input {
-    outline: none;
-    border: none;
-    width: 25px;
-    text-align: center;
-    background-color: inherit;
-    border-bottom: 1px solid #2c3e50;
-    margin: 15px 30px;
-    cursor: pointer;
-    font-size: 20px;
-    -webkit-appearance: none;
-    transition: width 0.5s;
-  }
 
-  .to-input:disabled {
-    border-bottom: 0;
-    color: #2c3e50;
-    text-shadow: 0 0 1px #333, 0 0 1px #333;
-  }
-
-  .big-margin {
-    margin-bottom: 60px;
-  }
-
-  .another-position {
-    top: 100%;
-    left: -240%;
-    max-width: 400px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    .to-input {
-      font-size: 15px;
-      margin: 10px 15px;
-    }
-
-    .another-position {
-      left: -350%;
-    }
-  }
-
-  @media screen and (max-width: 580px) {
-    .to-input {
-      font-size: 12px;
-      margin: 5px 15px;
-    }
-
-    .another-position {
-      left: -300%;
-    }
-  }
 </style>
