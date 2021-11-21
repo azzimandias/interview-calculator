@@ -447,10 +447,6 @@ export default {
     flex: 0 0 auto;
   }
 
-  .result__body {
-  //margin-bottom: 60px;
-  }
-
   .result__title {
     font-size: 30px;
   }
