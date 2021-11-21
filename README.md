@@ -1,6 +1,6 @@
-![img](./src/assets/name.png)
-[Test the functionality in demo.](https://azzimandias.github.io/interview-calculator/)
-Interview calculator web application. Implemented using the Vue framework.
+![img](./src/assets/name.png)<br/>
+[Test the functionality in demo.](https://azzimandias.github.io/interview-calculator/)<br/>
+Interview calculator web application. Implemented using the Vue framework.<br/>
 
 ---
 <h2 align="center"> Project description </h2>
