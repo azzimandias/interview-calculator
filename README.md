@@ -1,6 +1,7 @@
 ![img](./src/assets/name.png)
-<h3 align="center"> [Test the functionality in demo.](https://azzimandias.github.io/interview-calculator/) </h3>
+[Test the functionality in demo.](https://azzimandias.github.io/interview-calculator/)
 Interview calculator web application. Implemented using the Vue framework.
+
 ---
 <h2 align="center"> Project description </h2>
 
