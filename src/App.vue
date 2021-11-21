@@ -120,11 +120,13 @@ export default {
       this.testerKeyRerender++;
     },
     getBackClasses() {
-      this.hidden1.className = "answer1";
-      this.hidden2.className = "answer1";
+      this.hidden1.className = "answer";
+      this.hidden2.className = "answer";
+      this.hidden1.style.transition = 'font-size 0.5s, opacity 0.5s, margin 0.5s';
+      this.hidden2.style.transition = 'font-size 0.5s, opacity 0.5s, margin 0.5s';
       setTimeout(() => {
-        this.hidden1.className = "answer";
-        this.hidden2.className = "answer";
+        this.hidden1.style.transition = 'font-size 0.5s, opacity 0s, margin 0.5s';
+        this.hidden2.style.transition = 'font-size 0.5s, opacity 0s, margin 0.5s';
       }, 500)
       this.chosen.className = "answer";
     },
@@ -284,12 +286,7 @@ export default {
   }
 
   .answer1 {
-    opacity: 1;
-    margin: 15px 30px;
-    cursor: pointer;
-    font-size: 20px;
-    text-shadow: 0 0 0 #333, 0 0 0 #333;
-    transition: font-size 0.5s, opacity 1s, margin 0.5s;
+    opacity: 0;
   }
 
   .answer:hover {
