@@ -67,7 +67,6 @@ body::-webkit-scrollbar {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 24px;
-    transition: filter 0.1s ease-in;
     background-image: url('../assets/icons/arrow.svg');
     transform: rotate(90deg);
 }
