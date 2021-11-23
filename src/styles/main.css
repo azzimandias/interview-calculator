@@ -67,7 +67,7 @@ body::-webkit-scrollbar {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 24px;
-    transition: 0.1s ease-in;
+    transition: filter 0.1s ease-in;
     background-image: url('../assets/icons/arrow.svg');
     transform: rotate(90deg);
 }
@@ -144,6 +144,10 @@ body::-webkit-scrollbar {
 
 .switcher__radio--dark:checked ~ .switcher__status {
     background-position: right 2px center;
+}
+
+.arrow {
+    filter: var(--invert-2);
 }
 
 .switcher__radio {
