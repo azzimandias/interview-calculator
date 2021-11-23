@@ -5,6 +5,24 @@
       Interview<br/>
       calculator
     </h1>
+    <div class="switcher">
+      <input class="switcher__radio switcher__radio--light"
+             type="radio"
+             name="color-theme"
+             value="light"
+             aria-label="Светлая" @click="switchTheme($event)">
+      <input class="switcher__radio switcher__radio--auto"
+             type="radio"
+             name="color-theme"
+             value="auto"
+             aria-label="Автоматическкая" @click="switchTheme($event)" checked>
+      <input class="switcher__radio switcher__radio--dark"
+             type="radio"
+             name="color-theme"
+             value="dark"
+             aria-label="Темная" @click="switchTheme($event)">
+      <div class="switcher__status"></div>
+    </div>
     <div class="chat" id="chat">
       <div class="chat__segment" id="firstQuestion">
         <div class="question">
@@ -64,6 +82,7 @@ export default {
       webKeyRerender: 0,
       juniorKeyRerender: 1,
       testerKeyRerender: 2,
+      eventValue: ''
     }
   },
 
@@ -77,6 +96,24 @@ export default {
   ]),
   methods: {
     ...mapMutations(['whatsChosen', 'clearAllSegments']),
+    switchTheme(event) {
+      if (this.eventValue !== event.target.value) {
+        this.eventValue = event.target.value;
+        if (localStorage.getItem('color-theme')) {
+          if (event.target.value === 'auto') {
+            localStorage.removeItem('color-theme');
+            document.documentElement.setAttribute('data-theme', 'auto');
+            return;
+          }
+          localStorage.setItem('color-theme', event.target.value);
+          document.documentElement.setAttribute('data-theme', event.target.value);
+        }
+        else {
+          localStorage.setItem('color-theme', event.target.value);
+          document.documentElement.setAttribute('data-theme', event.target.value);
+        }
+      }
+    },
     choseBranch(short, id) {
       if (!this.flag) {
         this.flag = !this.flag;
@@ -151,6 +188,18 @@ export default {
     }
   },
   mounted() {
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.switcher__radio--light').checked = 'checked';
+    }
+    else if (localStorage.getItem('color-theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.querySelector('.switcher__radio--dark').checked = 'checked';
+    }
+    else {
+      document.documentElement.setAttribute('data-theme', 'auto');
+      document.querySelector('.switcher__radio--auto').checked = 'checked';
+    }
   }
 }
 </script>

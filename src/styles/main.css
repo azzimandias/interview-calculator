@@ -6,24 +6,18 @@
     --box-shad-color: rgba(0, 0, 0, 0.2);
     --text-shad-color-1: #333;
     --text-shad-color-2: #333;
+    --invert-1: invert(1);
+    --invert-2: invert(0);
 }
 
 * {
     -webkit-tap-highlight-color: transparent;
-    background-color: var(--page-color);
     box-sizing: border-box;
     transition: 0.3s;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    background-color: inherit;
-}
-
-div {
-    background-color: inherit;
-}
-
 body {
+    background-color: var(--page-color);
     -ms-overflow-style: none;
     overflow-y: scroll;
     margin: 0;
@@ -64,6 +58,97 @@ body::-webkit-scrollbar {
     line-height: 60px;
     margin: 0;
 }
+
+.switcher {
+    position: fixed;
+    top: 35%;
+    left: calc(50% - 750px);
+    margin: 0 0 0 -50px;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: none;
+}
+
+.switcher__legend {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.switcher__radio {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    transition: filter 0.1s ease-in;
+}
+
+.switcher__radio:focus {
+    outline: none;
+}
+
+.switcher__radio--light {
+    background-image: url('../assets/icons/light.svg');
+}
+
+.switcher__radio--auto {
+    background-image: url('../assets/icons/auto.svg');
+}
+
+.switcher__radio--dark {
+    background-image: url('../assets/icons/dark.svg');
+}
+
+.switcher__status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow: 0 0 0 2px black;
+    border-radius: 18px;
+    background-color: rgb(255 255 255 / 0.5);
+    background-repeat: no-repeat;
+    background-image: url('../assets/icons/status.svg');
+    background-size: 32px;
+    background-position: center;
+    transition: background-position 0.1s ease-in;
+}
+
+/*.switcher__radio:focus-visible ~ .switcher__status {
+    box-shadow: 0 0 0 2px black;
+}*/
+
+.switcher__radio--light:checked ~ .switcher__status {
+    background-position: left 2px center;
+}
+
+.switcher__radio--auto:checked ~ .switcher__status {
+    background-position: center center;
+}
+
+.switcher__radio--dark:checked ~ .switcher__status {
+    background-position: right 2px center;
+}
+
+.switcher__radio {
+    filter: var(--invert-2);
+}
+
+.switcher__radio:checked {
+    filter: var(--invert-1);
+}
+
+.switcher__status {
+    filter: var(--invert-2);
+}
+
 
 .chat {
     width: 1000px;
@@ -175,6 +260,10 @@ body::-webkit-scrollbar {
         font-size: 45px;
     }
 
+    .switcher {
+        left: calc(50% - 560px);
+    }
+
     .chat {
         width: 800px;
     }
@@ -184,6 +273,10 @@ body::-webkit-scrollbar {
     .application-name {
         left: calc(50% - 500px);
         font-size: 35px;
+    }
+
+    .switcher {
+        left: calc(50% - 425px);
     }
 
     .chat {
@@ -225,6 +318,11 @@ body::-webkit-scrollbar {
         line-height: 40px;
     }
 
+    .switcher {
+        top: 25%;
+        left: calc(50% - 320px);
+    }
+
     .chat {
         width: 450px;
     }
@@ -240,6 +338,12 @@ body::-webkit-scrollbar {
         left: calc(50% - 200px);
         font-size: 28px;
         line-height: 40px;
+        z-index: 1;
+    }
+
+    .switcher {
+        top: 6%;
+        left: 57%;
         z-index: 1;
     }
 
@@ -370,6 +474,7 @@ body::-webkit-scrollbar {
     color: var(--answer-color);
     border-radius: 50px;
     box-shadow: 0 0 10px var(--box-shad-color);
+    background-color: inherit;
     cursor: pointer;
     animation: move 0.7s ease-out;
     transition: 0.3s;
@@ -447,30 +552,5 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 580px) {
     .percent {
         right: 10%;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --page-color: white;
-        --text-color: #2c3e50;
-        --question-color: bisque;
-        --answer-color: darkseagreen;
-        --box-shad-color: rgba(0, 0, 0, 0.2);
-        --text-shad-color-1: #333;
-        --text-shad-color-2: #333;
-    }
-}
-
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --page-color: black;
-        --text-color: aliceblue;
-        --question-color: #2c3e50;
-        --answer-color: darkolivegreen;
-        --box-shad-color: rgba(255, 255, 255, 0.2);
-        --text-shad-color-1: #000;
-        --text-shad-color-2: #fff;
     }
 }
