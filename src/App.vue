@@ -5,6 +5,7 @@
       Interview
       calculator
     </h1>
+    <div class="arrow" @click="openCloseThemes($event)"></div>
     <div class="switcher">
       <input class="switcher__radio switcher__radio--light"
              type="radio"
@@ -82,6 +83,7 @@ export default {
       webKeyRerender: 0,
       juniorKeyRerender: 1,
       testerKeyRerender: 2,
+      arrowFlag: false,
       eventValue: ''
     }
   },
@@ -96,6 +98,19 @@ export default {
   ]),
   methods: {
     ...mapMutations(['whatsChosen', 'clearAllSegments']),
+    openCloseThemes(event) {
+      let switcher = document.querySelector('.switcher');
+      if (!this.arrowFlag) {
+        event.target.style.marginLeft = '105px';
+        switcher.style.marginLeft = '105px';
+        this.arrowFlag = !this.arrowFlag;
+      }
+      else {
+        event.target.style.marginLeft = '0';
+        switcher.style.marginLeft = '-2px';
+        this.arrowFlag = !this.arrowFlag;
+      }
+    },
     switchTheme(event) {
       if (this.eventValue !== event.target.value) {
         this.eventValue = event.target.value;

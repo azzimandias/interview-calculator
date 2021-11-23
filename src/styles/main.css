@@ -60,6 +60,18 @@ body::-webkit-scrollbar {
     margin: 0;
 }
 
+.arrow {
+    display: none;
+    width: 36px;
+    height: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    transition: 0.1s ease-in;
+    background-image: url('../assets/icons/arrow.svg');
+    transform: rotate(90deg);
+}
+
 .switcher {
     position: fixed;
     top: 35%;
@@ -332,17 +344,24 @@ body::-webkit-scrollbar {
 
     .application-name {
         top: 10px;
-        left: 10%;
+        left: 5%;
         width: auto;
         font-size: 20px;
         line-height: 40px;
         z-index: 1;
     }
 
+    .arrow {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        top: 90%;
+    }
+
     .switcher {
         z-index: 1;
-        top: 80%;
-        left: 13%;
+        top: 90%;
+        left: -100px;
     }
 
     .chat {
@@ -352,13 +371,8 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 580px) {
-    .application-name {
-        left: 10%;
-    }
-
     .switcher {
-        top: 75%;
-        left: 15%;
+        //left: 15%;
     }
 
     .chat {
@@ -548,7 +562,7 @@ body::-webkit-scrollbar {
     .percent {
         top: 10px;
         line-height: 40px;
-        right: 10%;
+        right: 5%;
         z-index: 1;
     }
 
