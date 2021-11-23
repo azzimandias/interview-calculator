@@ -54,6 +54,7 @@ body::-webkit-scrollbar {
     position: fixed;
     top: 10%;
     left: calc(50% - 850px);
+    width: 100px;
     font-size: 50px;
     line-height: 60px;
     margin: 0;
@@ -120,10 +121,6 @@ body::-webkit-scrollbar {
     background-position: center;
     transition: background-position 0.1s ease-in;
 }
-
-/*.switcher__radio:focus-visible ~ .switcher__status {
-    box-shadow: 0 0 0 2px black;
-}*/
 
 .switcher__radio--light:checked ~ .switcher__status {
     background-position: left 2px center;
@@ -331,25 +328,27 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 768px) {
     .white-block {
         display: block;
+        height: 10%;
     }
 
     .application-name {
-        top: 3%;
-        left: calc(50% - 200px);
-        font-size: 28px;
+        top: 2%;
+        left: 10%;
+        width: auto;
+        font-size: 20px;
         line-height: 40px;
         z-index: 1;
     }
 
     .switcher {
-        top: 6%;
-        left: 57%;
         z-index: 1;
+        top: 80%;
+        left: 13%;
     }
 
     .chat {
         width: auto;
-        margin: 100px 30px 0 30px;
+        margin: 40px 30px 0 30px;
     }
 }
 
@@ -358,8 +357,13 @@ body::-webkit-scrollbar {
         left: 10%;
     }
 
+    .switcher {
+        top: 75%;
+        left: 15%;
+    }
+
     .chat {
-        margin: 100px 10px 0 10px;
+        margin: 40px 10px 0 10px;
         padding: 60px 10px 20px 10px;
     }
 
@@ -543,14 +547,13 @@ body::-webkit-scrollbar {
 
 @media screen and (max-width: 768px) {
     .percent {
-        top: 3%;
-        right: calc(50% - 200px);
+        top: -1%;
+        right: 10%;
         z-index: 1;
+    }
+
+    .percent__title {
+        font-size: 30px;
     }
 }
 
-@media screen and (max-width: 580px) {
-    .percent {
-        right: 10%;
-    }
-}

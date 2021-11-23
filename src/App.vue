@@ -2,7 +2,7 @@
   <div id="app">
     <div class="white-block"></div>
     <h1 class="application-name">
-      Interview<br/>
+      Interview
       calculator
     </h1>
     <div class="switcher">
