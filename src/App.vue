@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import debounce from 'lodash/debounce';
 import WebDesigner from "@/components/WebDesigner";
 import JuniorFrontend from "@/components/JuniorFrontend";
 import Tester from "@/components/Tester";
@@ -99,14 +100,15 @@ export default {
   methods: {
     ...mapMutations(['whatsChosen', 'clearAllSegments']),
     openCloseThemes(event) {
+      let arrow = document.querySelector('.arrow');
       let switcher = document.querySelector('.switcher');
-      if (!this.arrowFlag) {
-        event.target.style.marginLeft = '105px';
+      if (!this.arrowFlag && event.type !== 'scroll') {
+        arrow.style.marginLeft = '105px';
         switcher.style.marginLeft = '105px';
         this.arrowFlag = !this.arrowFlag;
       }
-      else {
-        event.target.style.marginLeft = '0';
+      else if (this.arrowFlag || event.type === 'scroll') {
+        arrow.style.marginLeft = '0';
         switcher.style.marginLeft = '-2px';
         this.arrowFlag = !this.arrowFlag;
       }
@@ -203,6 +205,8 @@ export default {
     }
   },
   mounted() {
+    this.handleDebouncedScroll = debounce(this.openCloseThemes, 100);
+    window.addEventListener('scroll', this.handleDebouncedScroll);
     if (localStorage.getItem('color-theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       document.querySelector('.switcher__radio--light').checked = 'checked';
