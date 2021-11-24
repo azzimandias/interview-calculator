@@ -103,8 +103,8 @@ export default {
       let arrow = document.querySelector('.arrow');
       let switcher = document.querySelector('.switcher');
       if (!this.arrowFlag && event.type !== 'scroll') {
-        arrow.style.marginLeft = '105px';
-        switcher.style.marginLeft = '105px';
+        arrow.style.marginLeft = '50px';
+        switcher.style.marginLeft = '50px';
         this.arrowFlag = !this.arrowFlag;
       }
       else if (this.arrowFlag || event.type === 'scroll') {
@@ -205,7 +205,7 @@ export default {
     }
   },
   mounted() {
-    this.handleDebouncedScroll = debounce(this.openCloseThemes, 100);
+    this.handleDebouncedScroll = debounce(this.openCloseThemes, 1);
     window.addEventListener('scroll', this.handleDebouncedScroll);
     if (localStorage.getItem('color-theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
