@@ -5,8 +5,8 @@
       Interview
       calculator
     </h1>
-    <div class="arrow" @click="openCloseThemes($event)"></div>
-    <div class="switcher">
+    <div class="arrow arrow--un-clicked" @click="openCloseThemes($event)"></div>
+    <div class="switcher switcher--close">
       <input class="switcher__radio switcher__radio--light"
              type="radio"
              name="color-theme"
@@ -102,16 +102,16 @@ export default {
     openCloseThemes(event) {
       let arrow = document.querySelector('.arrow');
       let switcher = document.querySelector('.switcher');
+      arrow.className = arrow.className.split(' ')[0];
+      switcher.className = switcher.className.split(' ')[0];
       if (!this.arrowFlag && event.type !== 'scroll') {
-        switcher.style.opacity = '1';
-        arrow.style.marginLeft = '50px';
-        switcher.style.marginLeft = '50px';
+        arrow.className += ' arrow--clicked';
+        switcher.className += ' switcher--open';
         this.arrowFlag = !this.arrowFlag;
       }
       else if (this.arrowFlag || event.type === 'scroll') {
-        switcher.style.opacity = '0';
-        arrow.style.marginLeft = '0';
-        switcher.style.marginLeft = '-2px';
+        arrow.className += ' arrow--un-clicked';
+        switcher.className += ' switcher--close';
         this.arrowFlag = !this.arrowFlag;
       }
     },

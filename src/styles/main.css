@@ -71,6 +71,14 @@ body::-webkit-scrollbar {
     transform: rotate(90deg);
 }
 
+.arrow--un-clicked {
+    margin-left: 0;
+}
+
+.arrow--clicked {
+    margin-left: 0;
+}
+
 .switcher {
     position: fixed;
     top: 200px;
@@ -80,6 +88,16 @@ body::-webkit-scrollbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border: none;
+}
+
+.switcher--close {
+    margin-left: 0;
+    opacity: 1;
+}
+
+.switcher--open {
+    margin-left: 0;
+    opacity: 1;
 }
 
 .switcher__legend {
@@ -360,12 +378,30 @@ body::-webkit-scrollbar {
         top: calc(90% - 18px);
     }
 
+    .arrow--un-clicked {
+        margin-left: 0;
+    }
+
+    .arrow--clicked {
+        margin-left: 50px;
+    }
+
     .switcher {
         opacity: 0;
         z-index: 1;
         top: calc(90% - 50px);
         left: -38px;
         grid-template-columns: 1fr;
+    }
+
+    .switcher--close {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .switcher--open {
+        margin-left: 50px;
+        opacity: 1;
     }
 
     .switcher__radio--light:checked ~ .switcher__status {
