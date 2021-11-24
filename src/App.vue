@@ -103,11 +103,13 @@ export default {
       let arrow = document.querySelector('.arrow');
       let switcher = document.querySelector('.switcher');
       if (!this.arrowFlag && event.type !== 'scroll') {
+        switcher.style.opacity = '1';
         arrow.style.marginLeft = '50px';
         switcher.style.marginLeft = '50px';
         this.arrowFlag = !this.arrowFlag;
       }
       else if (this.arrowFlag || event.type === 'scroll') {
+        switcher.style.opacity = '0';
         arrow.style.marginLeft = '0';
         switcher.style.marginLeft = '-2px';
         this.arrowFlag = !this.arrowFlag;

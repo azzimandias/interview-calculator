@@ -361,7 +361,7 @@ body::-webkit-scrollbar {
     }
 
     .switcher {
-        display: none;
+        opacity: 0;
         z-index: 1;
         top: calc(90% - 50px);
         left: -38px;
