@@ -394,6 +394,28 @@ body::-webkit-scrollbar {
     }
 }
 
+@media screen and (max-width: 768px) and (max-height: 600px) {
+    .arrow {
+        width: 26px;
+        height: 26px;
+        top: calc(85% - 21px);
+    }
+
+    .switcher {
+        top: calc(85% - 50px);
+    }
+
+    .switcher__radio {
+        width: 26px;
+        height: 26px;
+        background-size: 18px;
+    }
+
+    .switcher__status {
+        background-size: 26px;
+    }
+}
+
 @media screen and (max-width: 580px) {
     .chat {
         margin: 40px 10px 0 10px;
