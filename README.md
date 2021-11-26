@@ -1,5 +1,6 @@
 ![img](./src/assets/name.png)<br/>
 [Test the functionality in demo.](https://azzimandias.github.io/interview-calculator/)<br/>
+(not stable version)<br/>
 Interview calculator web application. Implemented using the Vue framework.<br/>
 
 ---
