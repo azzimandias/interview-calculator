@@ -8,6 +8,11 @@
     "deploy": "node scripts/gh-pages-deploy.js",
     "start": "node server.js"
   },
+  "engines" : {
+    "node" : ">=0.12"
+  },
+  "engineStrict" : true
+  ,
   "dependencies": {
     "core-js": "^3.6.5",
     "express": "^4.17.1",
