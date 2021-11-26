@@ -1,0 +1,22 @@
+[data-theme="light"] {
+    --page-color: white;
+    --text-color: #2c3e50;
+    --question-color: bisque;
+    --answer-color: darkseagreen;
+    --box-shad-color: rgba(0, 0, 0, 0.2);
+    --text-shad-color-1: #333;
+    --text-shad-color-2: #333;
+    --invert-1: invert(1);
+    --invert-2: invert(0);
+}
+[data-theme="dark"] {
+    --page-color: black;
+    --text-color: aliceblue;
+    --question-color: #2c3e50;
+    --answer-color: darkolivegreen;
+    --box-shad-color: rgba(255, 255, 255, 0.2);
+    --text-shad-color-1: #000;
+    --text-shad-color-2: #fff;
+    --invert-1: invert(0);
+    --invert-2: invert(1);
+}
