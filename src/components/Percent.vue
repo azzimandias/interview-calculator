@@ -67,14 +67,14 @@ export default {
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1130px) {
     .percent {
       line-height: 80px;
       right: calc(50% - 350px);
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 890px) {
     .percent {
       top: 10px;
       line-height: 40px;

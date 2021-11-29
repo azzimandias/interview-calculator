@@ -213,23 +213,24 @@ export default {
 
   @media screen and (max-width: 1760px) {
     .switcher {
-      left: calc(50% - 660px);
+      left: calc(50% - 710px);
     }
   }
 
   @media screen and (max-width: 1440px) {
     .switcher {
-      left: calc(50% - 500px);
+      left: calc(50% - 550px);
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1130px) {
     .switcher {
-      left: calc(50% - 380px);
+      top: 150px;
+      left: calc(50% - 430px);
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 890px) {
     .arrow {
       display: block;
       position: fixed;

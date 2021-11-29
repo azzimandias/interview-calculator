@@ -52,7 +52,7 @@ export default {
     transition: 0.3s;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1130px) {
     .maybe {
       font-size: 15px;
     }

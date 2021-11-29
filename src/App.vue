@@ -3,7 +3,7 @@
     <div class="white-block"></div>
     <h1 class="application-name">
       Interview
-      calculator
+      calculator 🧮
     </h1>
     <ThemeSwitcher/>
     <div class="chat" id="chat">
@@ -204,7 +204,7 @@ export default {
     position: fixed;
     top: 50px;
     left: calc(50% - 850px);
-    width: 200px;
+    width: 350px;
     font-size: 50px;
     line-height: 60px;
     margin: 0;
@@ -328,7 +328,8 @@ export default {
 
   @media screen and (max-width: 1760px) {
     .application-name {
-      left: calc(50% - 660px);
+      width: 300px;
+      left: calc(50% - 710px);
       font-size: 45px;
     }
 
@@ -339,7 +340,8 @@ export default {
 
   @media screen and (max-width: 1440px) {
     .application-name {
-      left: calc(50% - 500px);
+      width: 250px;
+      left: calc(50% - 550px);
       font-size: 35px;
     }
 
@@ -375,9 +377,9 @@ export default {
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1130px) {
     .application-name {
-      left: calc(50% - 380px);
+      left: calc(50% - 430px);
       font-size: 28px;
       line-height: 40px;
     }
@@ -387,7 +389,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 890px) {
     .white-block {
       display: block;
     }
