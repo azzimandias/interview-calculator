@@ -181,7 +181,7 @@ export default {
     cursor: pointer;
     font-size: 20px;
     text-shadow: 0 0 0 var(--text-shad-color-1), 0 0 0 var(--text-shad-color-1);
-    transition: font-size 0.5s, opacity 0s, margin 0.5s;
+    transition: font-size 0.5s, opacity 0s, margin 0.5s, color 0.3s, text-shadow 0.3s;
   }
 
   .answer1 {
