@@ -26,16 +26,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../styles/scss/main.scss';
   .maybe {
     display: inline-block;
     font-size: 20px;
     padding: 15px;
-    border: var(--answer-color) solid 2px;
+    border: $answer-color solid 2px;
     font-weight: bold;
-    color: var(--answer-color);
+    color: $answer-color;
     border-radius: 50px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     background-color: inherit;
     cursor: pointer;
     animation: move 0.7s ease-out;
@@ -43,7 +44,7 @@ export default {
   }
 
   .maybe:active {
-    box-shadow: 0 0 0 var(--box-shad-color);
+    box-shadow: 0 0 0 $box-shad-color;
   }
 
   .tester-anim {

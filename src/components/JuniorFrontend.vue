@@ -117,7 +117,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../styles/scss/main.scss';
+
   .chat__segment {
     position: relative;
     display: flex;
@@ -147,9 +149,9 @@ export default {
     display: inline-block;
     padding: 5px;
     margin-bottom: 20px;
-    background-color: var(--question-color);
+    background-color: $question-color;
     border-radius: 50px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     transition: 0.3s;
     animation: move 0.7s ease-out;
   }
@@ -169,9 +171,9 @@ export default {
     display: inline-block;
     padding: 5px;
     margin-bottom: 20px;
-    background-color: var(--answer-color);
+    background-color: $answer-color;
     border-radius: 50px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     animation: move 1s ease-out;
   }
 
@@ -180,7 +182,7 @@ export default {
     margin: 15px 30px;
     cursor: pointer;
     font-size: 20px;
-    text-shadow: 0 0 0 var(--text-shad-color-1), 0 0 0 var(--text-shad-color-1);
+    text-shadow: 0 0 0 $text-shad-color-1, 0 0 0 $text-shad-color-1;
     transition: font-size 0.5s, opacity 0s, margin 0.5s, color 0.3s, text-shadow 0.3s;
   }
 
@@ -189,7 +191,7 @@ export default {
   }
 
   .answer:hover {
-    text-shadow: 0 0 1px var(--text-shad-color-2), 0 0 1px var(--text-shad-color-2);
+    text-shadow: 0 0 1px $text-shad-color-2, 0 0 1px $text-shad-color-2;
   }
 
   .help {
@@ -199,9 +201,9 @@ export default {
     left: calc(50% - 165px);
     max-width: 260px;
     padding: 15px 30px;
-    background-color: var(--answer-color);
+    background-color: $answer-color;
     border-radius: 10px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     animation: move 1s ease-out;
   }
 
@@ -212,7 +214,7 @@ export default {
   }
 
   .chosen {
-    text-shadow: 0 0 1px var(--text-shad-color-2), 0 0 1px var(--text-shad-color-2);
+    text-shadow: 0 0 1px $text-shad-color-2, 0 0 1px $text-shad-color-2;
   }
 
   @media screen and (max-width: 1440px) {

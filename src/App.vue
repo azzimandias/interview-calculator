@@ -159,7 +159,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import './styles/scss/main.scss';
+
   * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
@@ -167,7 +169,7 @@ export default {
   }
 
   body {
-    background-color: var(--page-color);
+    background-color: $page-color;
     -ms-overflow-style: none;
     overflow-y: scroll;
     margin: 0;
@@ -181,7 +183,7 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: var(--text-color);
+    color: $text-color;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -195,8 +197,8 @@ export default {
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: var(--page-color);
-    box-shadow: 0 0 10px var(--box-shad-color);
+    background-color: $page-color;
+    box-shadow: 0 0 10px $box-shad-color;
     z-index: 1;
   }
 
@@ -246,9 +248,9 @@ export default {
     display: inline-block;
     padding: 5px;
     margin-bottom: 20px;
-    background-color: var(--question-color);
+    background-color: $question-color;
     border-radius: 50px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     transition: 0.3s;
     animation: move 0.7s ease-out;
   }
@@ -268,9 +270,9 @@ export default {
     display: inline-block;
     padding: 5px;
     margin-bottom: 20px;
-    background-color: var(--answer-color);
+    background-color: $answer-color;
     border-radius: 50px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     animation: move 1s ease-out;
   }
 
@@ -279,7 +281,7 @@ export default {
     margin: 15px 30px;
     cursor: pointer;
     font-size: 20px;
-    text-shadow: 0 0 0 var(--text-shad-color-1), 0 0 0 var(--text-shad-color-1);
+    text-shadow: 0 0 0 $text-shad-color-1, 0 0 0 $text-shad-color-1;
     transition: font-size 0.5s, opacity 0s, margin 0.5s, color 0.3s, text-shadow 0.3s;
   }
 
@@ -288,7 +290,7 @@ export default {
   }
 
   .answer:hover {
-    text-shadow: 0 0 1px var(--text-shad-color-2), 0 0 1px var(--text-shad-color-2);
+    text-shadow: 0 0 1px $text-shad-color-2, 0 0 1px $text-shad-color-2;
   }
 
   .help {
@@ -298,9 +300,9 @@ export default {
     left: calc(50% - 165px);
     max-width: 260px;
     padding: 15px 30px;
-    background-color: var(--answer-color);
+    background-color: $answer-color;
     border-radius: 10px;
-    box-shadow: 0 0 10px var(--box-shad-color);
+    box-shadow: 0 0 10px $box-shad-color;
     animation: move 1s ease-out;
   }
 
@@ -311,7 +313,7 @@ export default {
   }
 
   .chosen {
-    text-shadow: 0 0 1px var(--text-shad-color-2), 0 0 1px var(--text-shad-color-2);
+    text-shadow: 0 0 1px $text-shad-color-2, 0 0 1px $text-shad-color-2;
   }
 
   .result {

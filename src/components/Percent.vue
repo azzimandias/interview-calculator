@@ -34,7 +34,7 @@ export default {
   }
 }
 </script>
-  <style scoped>
+  <style lang="scss" scoped>
   .percent {
     position: fixed;
     line-height: 120px;

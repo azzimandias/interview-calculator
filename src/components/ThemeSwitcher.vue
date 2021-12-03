@@ -91,7 +91,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import '../styles/scss/main.scss';
+
   .arrow {
     display: none;
     width: 36px;
@@ -175,7 +177,7 @@ export default {
     z-index: -1;
     box-shadow: 0 0 0 2px black;
     border-radius: 18px;
-    background-color: rgb(255 255 255 / 0.5);
+    background-color: #fff;
     background-repeat: no-repeat;
     background-image: url('../assets/icons/status.svg');
     background-size: 32px;
@@ -196,19 +198,19 @@ export default {
   }
 
   .arrow {
-    filter: var(--invert-2);
+    filter: $invert-2;
   }
 
   .switcher__radio {
-    filter: var(--invert-2);
+    filter: $invert-2;
   }
 
   .switcher__radio:checked {
-    filter: var(--invert-1);
+    filter: $invert-1;
   }
 
   .switcher__status {
-    filter: var(--invert-2);
+    filter: $invert-2;
   }
 
   @media screen and (max-width: 1760px) {
