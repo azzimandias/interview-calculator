@@ -163,7 +163,6 @@ export default {
   * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
-    transition: 0.3s;
   }
 
   body {
@@ -171,6 +170,7 @@ export default {
     -ms-overflow-style: none;
     overflow-y: scroll;
     margin: 0;
+    transition: 0.3s;
   }
 
   body::-webkit-scrollbar {
