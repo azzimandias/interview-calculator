@@ -198,6 +198,7 @@ export default {
     background-color: var(--page-color);
     box-shadow: 0 0 10px var(--box-shad-color);
     z-index: 1;
+    transition: 0.3s;
   }
 
   .application-name {

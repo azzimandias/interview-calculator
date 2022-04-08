@@ -101,6 +101,7 @@ export default {
     background-size: 24px;
     background-image: url('../assets/icons/arrow.svg');
     transform: rotate(90deg);
+    transition: 0.3s;
   }
 
   .arrow--un-clicked {
@@ -120,6 +121,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border: none;
+    transition: 0.3s;
   }
 
   .switcher--close {
